@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public float TimeToLive = 7f;
+
+    private void Start()
+    {
+        Destroy(gameObject, TimeToLive);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -12,6 +18,7 @@ public class Weapon : MonoBehaviour
             if (collision.TryGetComponent(out e))
             {
                 e.TakeDamage(1);
+                Destroy(gameObject);
             }
         }
     }
