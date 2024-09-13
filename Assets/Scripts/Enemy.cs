@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int maxHealth =1;
+    [SerializeField] int maxHealth;
     private int Health;
     public Rigidbody2D rb;
 
