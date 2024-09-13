@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrowPreFab: {fileID: 4904943178471391179, guid: b2f94c57c43ca5344800cec57c50f69d, type: 3}
   ArrowSpeed: 5
+  cooldownPress: 1
+  cooldownHold: 1
 --- !u!1 &3211374878503191452
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponAround: {fileID: 1847259606956484762}
   moveSpeed: 5
-  maxHealth: 0
+  maxHealth: 1
   rb: {fileID: 6879079878214771272}
 --- !u!50 &6879079878214771272
 Rigidbody2D:

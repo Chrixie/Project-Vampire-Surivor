@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
     }
     void Death()
     {
-        Destroy(gameObject);
             Debug.Log("Player Died");
     }
 }

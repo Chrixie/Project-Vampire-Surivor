@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5328348467420807744}
   - component: {fileID: 3840532554378699184}
   - component: {fileID: 2122336598896203356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7388997241415276320}
   - component: {fileID: 5337928728155483834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3479189128444046028}
   - component: {fileID: 2030970504852459824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
