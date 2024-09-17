@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     private int Health;
     public Rigidbody2D rb;
 
+    [HideInInspector] public EnemySpawner enemySpawner;
+
     void Start()
     {
         Health = maxHealth;
@@ -28,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     void Death()
     {
+        enemySpawner.RemoveSpawnedEnemy(gameObject);
         Destroy(gameObject);
     }
 
