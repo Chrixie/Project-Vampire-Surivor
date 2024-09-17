@@ -62,8 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79dc60bde3f53984cbda51ecbf83d7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 11
   rb: {fileID: 5328348467420807744}
+  enemySpawner: {fileID: 0}
 --- !u!50 &5328348467420807744
 Rigidbody2D:
   serializedVersion: 4
