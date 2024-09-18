@@ -5,31 +5,31 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Enemy
 {
     [SerializeField] private float moveSpeed;
     private Vector2 movement;
     public Transform Player;
-    //public GameObject Player2;
-    private Rigidbody2D rb;
-    private float direction;
-    //public GameObject player;
-    void Start()
+    protected float direction;
+    public override void fakeStart()
     {
-        //player = GameObject.FindFirstObjectByType<Player>().gameObject;
+        base.fakeStart();
         rb = this.GetComponent<Rigidbody2D>();
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
-        //transform.position += (player.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
-        Vector2 direction = Player.position - transform.position;
-        //Vector2 direction = Player.transform.position - transform.position;
+       fakeUpdate();
+    }
+    public virtual void fakeUpdate()
+    {
+        //Wrong direction towards the player ////////////////////////////////////////////////////////////////////////////////////
+        Vector3 direction = Player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         direction.Normalize();
         movement = direction;
-        
+
     }
     private void FixedUpdate()
     {
@@ -37,7 +37,8 @@ public class EnemyMovement : MonoBehaviour
     }
     void moveCharacter(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+        rb.velocity = ((direction * moveSpeed));
+
     }
 }
 

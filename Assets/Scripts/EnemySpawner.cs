@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private float Timer = 0f;
+    [SerializeField] private float Timer = 0f;
     public GameObject[] enemyPrefabs;
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();

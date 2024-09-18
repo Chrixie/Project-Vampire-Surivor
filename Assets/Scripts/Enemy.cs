@@ -6,26 +6,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int maxHealth;
-    private int Health;
-    public Rigidbody2D rb;
-
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int Health;
+    [SerializeField] protected Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
 
     void Start()
     {
+        fakeStart();
+    }
+
+    public virtual void fakeStart()
+    {
         Health = maxHealth;
     }
-
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         Health -= damage;
         if (Health <= 0) Death();
+        print(damage);
+
+        //if (Health <= 0) { Death(); }
     }
 
     void Death()
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Damaging player (not implemented)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
