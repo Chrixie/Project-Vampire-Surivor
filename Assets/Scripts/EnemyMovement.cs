@@ -17,7 +17,7 @@ public class EnemyMovement : Enemy
         rb = this.GetComponent<Rigidbody2D>();
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
-    void Update()
+    public void Update()
     {
        fakeUpdate();
     }

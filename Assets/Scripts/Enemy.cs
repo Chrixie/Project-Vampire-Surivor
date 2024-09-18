@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     {
         Health -= damage;
         if (Health <= 0) Death();
-        print(damage);
 
         //if (Health <= 0) { Death(); }
     }
