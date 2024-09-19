@@ -26,6 +26,7 @@ public class StateMachine : MonoBehaviour
     public virtual void UpdateStateMachine()
     {
         CurrentState?.UpdateState();
+        print(CurrentState);
     }
 
     public bool IsState<aState>()

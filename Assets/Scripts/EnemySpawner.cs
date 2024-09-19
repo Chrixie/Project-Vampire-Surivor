@@ -13,13 +13,28 @@ public class EnemySpawner : MonoBehaviour
     public void RemoveSpawnedEnemy(GameObject enemy) => spawnedEnemies.Remove(enemy);
 
 
-    void Update()
+   /* public void Update()
     {
         
         Timer -= Time.deltaTime;
         if( Timer <= 0) 
         {
             SpawnEnemy(UnityEngine.Random.Range(0, enemyPrefabs.Length));
+        }
+    }*/
+
+    public void SpawnerUpdate()
+    {
+        Timer -= Time.deltaTime;
+        if (Timer <= 0)
+        {
+            SpawnEnemy(UnityEngine.Random.Range(0, enemyPrefabs.Length));
+
+        }
+        
+        foreach (GameObject enemy in spawnedEnemies)
+        {
+            enemy.GetComponent<EnemyMovement>().EnemyMovementUpdate();
         }
     }
 

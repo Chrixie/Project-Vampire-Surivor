@@ -19,7 +19,7 @@ public class Bow : MonoBehaviour
         StartCoroutine(RegulateHold());
     }
 
-    void Update()
+    public void ShootUpdate()
     {
         ShootArrowPress();
         ShootArrowHold();

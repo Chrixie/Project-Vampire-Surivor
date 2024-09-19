@@ -21,7 +21,17 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Update()
+    /*public void Update()
+    {
+        ProcessInputs();
+        Move();
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 bowDirection = mousePos - (Vector2)transform.position;
+        WeaponAround.up = bowDirection.normalized;
+    }*/
+
+    public void PlayerUpdate()
     {
         ProcessInputs();
         Move();
@@ -30,7 +40,6 @@ public class Player : MonoBehaviour
         Vector2 bowDirection = mousePos - (Vector2)transform.position;
         WeaponAround.up = bowDirection.normalized;
     }
-
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");

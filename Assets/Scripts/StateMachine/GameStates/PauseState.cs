@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PauseState : State
 {
+    [SerializeField] GameObject PauseMenu;
+    public override void EnterState()
+    {
+        base.EnterState();
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+
     public override void UpdateState()
     {
         base.UpdateState();
@@ -12,6 +21,8 @@ public class PauseState : State
         {
             GameManager.Instance.SwitchState<PlayingState>();
         }
-
     }
+
+
+
 }
