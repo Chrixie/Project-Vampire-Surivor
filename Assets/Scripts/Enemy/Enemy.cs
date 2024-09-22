@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private int Health;
-    [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
 
     void Start()

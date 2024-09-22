@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 8
   Health: 0
-  rb: {fileID: 0}
+  rb: {fileID: 5328348467420807744}
   enemySpawner: {fileID: 0}
   moveSpeed: 3
   Player: {fileID: 4583635572017496815, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}

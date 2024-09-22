@@ -49,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   Health: 0
-  rb: {fileID: 0}
+  rb: {fileID: 5328348467420807744}
   enemySpawner: {fileID: 0}
   moveSpeed: 5
-  Player: {fileID: 0}
+  Player: {fileID: 4583635572017496815, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
 --- !u!50 &5328348467420807744
 Rigidbody2D:
   serializedVersion: 4

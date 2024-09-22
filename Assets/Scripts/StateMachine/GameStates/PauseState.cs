@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PauseState : State
 {
-    [SerializeField] GameObject PauseMenu;
+    [SerializeField] protected GameObject canvasMenu;
+    [SerializeField] protected GameObject pauseMenu;
+    [SerializeField] protected GameObject optionsMenu;
+    [SerializeField] protected GameObject quitMenu;
     public override void EnterState()
     {
         base.EnterState();
-        PauseMenu.SetActive(true);
+        pauseMenu.SetActive(true);
+        canvasMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
@@ -21,6 +25,14 @@ public class PauseState : State
         {
             GameManager.Instance.SwitchState<PlayingState>();
         }
+    }
+    public override void ExitState() { 
+        base.ExitState();
+        canvasMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        quitMenu.SetActive(false);
+
     }
 
 
