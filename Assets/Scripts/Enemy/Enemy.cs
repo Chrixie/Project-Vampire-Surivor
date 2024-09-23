@@ -10,10 +10,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int Health;
     [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
+    [SerializeField] FloatingStatusBar  healthBar;
+    
 
     void Start()
     {
         fakeStart();
+        healthBar = GetComponentInChildren<FloatingStatusBar>();
     }
 
     public virtual void fakeStart()
@@ -23,9 +26,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        healthBar.UpdateHealthBar(Health, maxHealth);
         if (Health <= 0) Death();
-
-        //if (Health <= 0) { Death(); }
     }
 
     void Death()

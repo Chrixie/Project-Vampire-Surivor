@@ -9,7 +9,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Transform WeaponAround;
     [SerializeField] float moveSpeed;
-    [SerializeField]  int maxHealth;
+    [SerializeField] int maxHealth;
+    [SerializeField] int currentExperience;
+    [SerializeField] int maxExperience;
+    [SerializeField] int currentLevel;
     private int Health;
     public Rigidbody2D rb;
     private Vector2 moveDirection;

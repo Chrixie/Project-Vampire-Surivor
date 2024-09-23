@@ -19,6 +19,7 @@ public class PauseMenu : PauseState
     {
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
+        quitMenu.SetActive(false);
     }
     public void OptionsBack()
     {

@@ -236,6 +236,9 @@ MonoBehaviour:
   WeaponAround: {fileID: 1847259606956484762}
   moveSpeed: 5
   maxHealth: 1
+  currentExperience: 0
+  maxExperience: 300
+  currentLevel: 1
   rb: {fileID: 6879079878214771272}
 --- !u!50 &6879079878214771272
 Rigidbody2D:
