@@ -34,7 +34,4 @@ public class PauseState : State
         quitMenu.SetActive(false);
 
     }
-
-
-
 }

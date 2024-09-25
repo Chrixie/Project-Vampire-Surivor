@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 5235031489103871344}
   - component: {fileID: 5328348467420807744}
   - component: {fileID: 3840532554378699184}
+  - component: {fileID: -6295682696837983481}
   m_Layer: 6
   m_Name: Enemy2
   m_TagString: Enemy
@@ -231,6 +232,9 @@ MonoBehaviour:
   rb: {fileID: 5328348467420807744}
   enemySpawner: {fileID: 0}
   healthBar: {fileID: 0}
+  GiveXp: 5
+  player: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+  XpBall: {fileID: 8990082602901652150, guid: 1b1b59180cfb67245899224be856225d, type: 3}
   moveSpeed: 3
   Player: {fileID: 4583635572017496815, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
 --- !u!50 &5328348467420807744
@@ -295,6 +299,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!58 &-6295682696837983481
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074632475171376741}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1297471693679863355
 GameObject:
   m_ObjectHideFlags: 0

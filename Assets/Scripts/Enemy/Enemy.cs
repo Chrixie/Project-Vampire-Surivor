@@ -11,7 +11,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
     [SerializeField] FloatingStatusBar  healthBar;
-    
+    [SerializeField] public int GiveXp;
+    public Player player;
+    [SerializeField] GameObject XpBall;
+
 
     void Start()
     {
@@ -26,18 +29,19 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        healthBar.UpdateHealthBar(Health, maxHealth);
+        healthBar.UpdateStatusBar(Health, maxHealth);
         if (Health <= 0) Death();
     }
-
-    void Death()
+        void Death()
     {
+        player.XpGain();
+        Instantiate(XpBall, transform.position, Quaternion.identity);
         enemySpawner.RemoveSpawnedEnemy(gameObject);
         Destroy(gameObject);
     }
 
     //Damaging player (not implemented)
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -49,3 +53,4 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+
