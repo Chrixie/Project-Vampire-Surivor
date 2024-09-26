@@ -82,9 +82,19 @@ public class Player : MonoBehaviour
         return maxXp + (5 + currentLevel * 5);
     }
 
+    /*public bool LvlUp(bool XPReached)
+    {
+        if (XPReached)
+        {
+            GameManager.Instance.SwitchState<UpgradeState>();
+            return true;
+        }
+        return false;
+    }*/
+
     public void XpGain()
     {
-        currentXp +=100;
+        currentXp +=25;
         XpBar.UpdateXpBar(currentXp, maxXp);
 
         Debug.Log("xp+");
@@ -93,26 +103,30 @@ public class Player : MonoBehaviour
 
         // maxXp = startXp + TotalMaxXp * curve.evaluate(currentLevel / maxLevel)
         float result = Mathf.Lerp(7, -7, 0.5f);
-        
-        if (currentXp >= maxXp)
-        {
+
+         if (currentXp >= maxXp)
+         {
             currentLevel++;
             currentXp = 0;
             maxXp = IncreaseMaxXp();
             XpBar.UpdateXpBar(currentXp, maxXp);
-            GameManager.Instance.SwitchState<UpgradeState>();
+            moveSpeed += 1;
 
-            Debug.Log("lvl+");
-        }
+            //LvlUp(true);
 
-        
-        
+             Debug.Log("lvl+");
+         }
+
     }
+
+
+
+}
 
    /*currentExperience;
      maxExperience;
      currentLevel;*/
 
 
-}     
+  
       

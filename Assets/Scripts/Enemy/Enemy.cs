@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] CircleCollider2D InnerCollider;
+    [SerializeField] CircleCollider2D OuterCollider;
     [SerializeField] private int maxHealth;
     [SerializeField] private int Health;
     [SerializeField] public Rigidbody2D rb;
@@ -14,6 +17,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int GiveXp;
     public Player player;
     [SerializeField] GameObject XpBall;
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject BodyRemove;
+    [SerializeField] GameObject blood;
 
 
     void Start()
@@ -28,16 +34,26 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        Health -= damage;
-        healthBar.UpdateStatusBar(Health, maxHealth);
-        if (Health <= 0) Death();
+        if (Health > 0) 
+        {
+            Health -= damage;
+            healthBar.UpdateStatusBar(Health, maxHealth);
+            if (Health <= 0)
+            {
+                BodyRemove.SetActive(false);
+                InnerCollider.enabled = false;
+                OuterCollider.enabled = false; 
+                Death();
+            }
+        }
     }
-        void Death()
+    public virtual void Death()
     {
         player.XpGain();
         Instantiate(XpBall, transform.position, Quaternion.identity);
         enemySpawner.RemoveSpawnedEnemy(gameObject);
-        Destroy(gameObject);
+        Instantiate(blood, transform.position, Quaternion.identity);
+        animator.SetBool("isDead", true);
     }
 
     //Damaging player (not implemented)
@@ -51,6 +67,11 @@ public class Enemy : MonoBehaviour
                 e.TakeDamage(1);
             }
         }
+    }
+
+    public void deleteMe()
+    {
+        Destroy(gameObject);
     }
 }
 

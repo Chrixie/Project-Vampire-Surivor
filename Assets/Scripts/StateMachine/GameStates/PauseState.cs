@@ -14,6 +14,7 @@ public class PauseState : State
         pauseMenu.SetActive(true);
         canvasMenu.SetActive(true);
         Time.timeScale = 0;
+        Debug.Log("pausestate");
     }
 
 

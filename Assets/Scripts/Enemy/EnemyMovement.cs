@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 public class EnemyMovement : Enemy
 {
-    [SerializeField] private float moveSpeed;
-    private Vector2 movement;
+    [SerializeField] protected float moveSpeed;
+    protected Vector2 movement;
     public Transform Player;
     protected float direction;
     public override void fakeStart()
@@ -23,7 +23,6 @@ public class EnemyMovement : Enemy
     }
     public virtual void fakeUpdate()
     {
-        //Wrong direction towards the player ////////////////////////////////////////////////////////////////////////////////////
         Vector3 direction = Player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
@@ -31,11 +30,16 @@ public class EnemyMovement : Enemy
         movement = direction;
 
     }
-    private void FixedUpdate()
+    public override void Death()
+    {
+        base.Death();
+        moveSpeed = 0;
+    }
+    protected void FixedUpdate()
     {
         moveCharacter(movement);
     }
-    void moveCharacter(Vector2 direction)
+    protected void moveCharacter(Vector2 direction)
     {
         rb.velocity = ((direction * moveSpeed));
 
