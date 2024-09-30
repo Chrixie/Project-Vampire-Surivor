@@ -2492,6 +2492,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 4851790108195917267, guid: fb0d2d0d84abb5c44a6b3f7e69ef844d, type: 3}
+    - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: maxHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
       propertyPath: mycurve.m_PostInfinity
       value: 2
       objectReference: {fileID: 0}

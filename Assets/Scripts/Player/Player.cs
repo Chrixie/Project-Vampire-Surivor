@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] int maxHealth;
     private int Health;
+    [SerializeField] GameObject blood;
 
     [SerializeField] int currentXp;
     [SerializeField] int maxXp;
@@ -69,7 +70,8 @@ public class Player : MonoBehaviour
     {
         healthBar.UpdateStatusBar(Health, maxHealth);
         Health -= damage;
-        if (Health < 0) Death();
+        Instantiate(blood, transform.position, Quaternion.identity);
+       // if (Health < 0) Death();
     }
     void Death()
     {

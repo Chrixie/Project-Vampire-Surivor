@@ -39,7 +39,7 @@ public class EnemyMovement : Enemy
     {
         moveCharacter(movement);
     }
-    protected void moveCharacter(Vector2 direction)
+    public virtual void moveCharacter(Vector2 direction)
     {
         rb.velocity = ((direction * moveSpeed));
 

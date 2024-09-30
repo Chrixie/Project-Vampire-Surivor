@@ -16,13 +16,20 @@ public class EnemyRanger : EnemyMovement
         float dist = Vector2.Distance(Player.position, transform.position);
 
 
-        if (dist <= 5)
+        if (dist <6)
         {
-            moveSpeed = 0;
-            
+
             if (dist < 5)
             {
                 //Move away from player
+                moveSpeed = 4;
+                MoveAway();
+                
+            }
+
+            if (dist > 5 && dist < 6)
+            {
+                moveSpeed = 0;
             }
             
         }
@@ -30,6 +37,10 @@ public class EnemyRanger : EnemyMovement
         {
             moveSpeed = 4;
         }
+    }
+    public void MoveAway()
+    {
+        transform.position = transform.position - Player.position * Time.deltaTime;
     }
 
 }

@@ -8,7 +8,6 @@ using static Unity.Collections.AllocatorManager;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] CircleCollider2D InnerCollider;
-    [SerializeField] CircleCollider2D OuterCollider;
     [SerializeField] private int maxHealth;
     [SerializeField] private int Health;
     [SerializeField] public Rigidbody2D rb;
@@ -42,7 +41,6 @@ public class Enemy : MonoBehaviour
             {
                 BodyRemove.SetActive(false);
                 InnerCollider.enabled = false;
-                OuterCollider.enabled = false; 
                 Death();
             }
         }
