@@ -28,12 +28,5 @@ public class PlayingState : State
         {
             GameManager.Instance.SwitchState<PauseState>();
         }
-
-        //Upgrade Menu on LEVELUP
-        //if (Player.LvlUp())
-        {
-            GameManager.Instance.SwitchState<UpgradeState>();
-            
-        }
     }
 }

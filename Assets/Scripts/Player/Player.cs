@@ -71,11 +71,11 @@ public class Player : MonoBehaviour
         healthBar.UpdateStatusBar(Health, maxHealth);
         Health -= damage;
         Instantiate(blood, transform.position, Quaternion.identity);
-       // if (Health < 0) Death();
+        if (Health < 0) Death();
     }
     void Death()
     {
-        GameManager.Instance.SwitchState<PauseState>();
+        GameManager.Instance.SwitchState<DeathState>();
         Debug.Log("Player Died");
     }
 
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         return maxXp + (5 + currentLevel * 5);
     }
 
-    /*public bool LvlUp(bool XPReached)
+    public bool LvlUp(bool XPReached)
     {
         if (XPReached)
         {
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
             return true;
         }
         return false;
-    }*/
+    }
 
     public void XpGain()
     {
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
             XpBar.UpdateXpBar(currentXp, maxXp);
             moveSpeed += 1;
 
-            //LvlUp(true);
+            LvlUp(true);
 
              Debug.Log("lvl+");
          }
