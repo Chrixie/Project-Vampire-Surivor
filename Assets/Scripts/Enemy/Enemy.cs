@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
     [SerializeField] FloatingStatusBar  healthBar;
-    [SerializeField] public int GiveXp;
     public Player player;
     [SerializeField] GameObject XpBall;
     [SerializeField] Animator animator;
@@ -47,7 +46,6 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Death()
     {
-        player.XpGain();
         Instantiate(XpBall, transform.position, Quaternion.identity);
         enemySpawner.RemoveSpawnedEnemy(gameObject);
         Instantiate(blood, transform.position, Quaternion.identity);

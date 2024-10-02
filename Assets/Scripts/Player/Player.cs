@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         Health = maxHealth;
         currentXp = 0;
         currentLevel = 0;
-        maxXp = 0;
+        maxXp = 100;
         moveSpeed = 4;
 
     }
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
     public void XpGain()
     {
-        currentXp +=25;
+        currentXp +=10;
         XpBar.UpdateXpBar(currentXp, maxXp);
 
         Debug.Log("xp+");
@@ -104,7 +104,6 @@ public class Player : MonoBehaviour
         AnimationCurve c = myXpCurve;
 
         // maxXp = startXp + TotalMaxXp * curve.evaluate(currentLevel / maxLevel)
-        float result = Mathf.Lerp(7, -7, 0.5f);
 
          if (currentXp >= maxXp)
          {
