@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 20409146}
   - component: {fileID: 20409145}
   m_Layer: 5
-  m_Name: Swoop
+  m_Name: maxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 101952988}
   - component: {fileID: 101952987}
   m_Layer: 5
-  m_Name: Swoop Upgrade
+  m_Name: maxHealth Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,6 +876,9 @@ MonoBehaviour:
   upgradeOne: {fileID: 837609535}
   upgradeTwo: {fileID: 283007549}
   upgradeThree: {fileID: 101952985}
+  Player: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+  WeaponDamage: {fileID: 0}
+  ShootSpeed: {fileID: 677930058}
 --- !u!1 &267341778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1025,7 @@ GameObject:
   - component: {fileID: 283007552}
   - component: {fileID: 283007551}
   m_Layer: 5
-  m_Name: moveSpeed Upgrade
+  m_Name: hold AttackSpeed Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,7 +1290,7 @@ GameObject:
   - component: {fileID: 302544145}
   - component: {fileID: 302544144}
   m_Layer: 5
-  m_Name: moveSpeed Upgrade
+  m_Name: hold AttackSpeed Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,7 +1335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: + Hold Attackspeed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1468,7 +1471,7 @@ GameObject:
   - component: {fileID: 325858571}
   - component: {fileID: 325858570}
   m_Layer: 0
-  m_Name: Highscore
+  m_Name: GAME OVER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2681,7 +2684,7 @@ GameObject:
   - component: {fileID: 705357253}
   - component: {fileID: 705357252}
   m_Layer: 5
-  m_Name: Health Upgrade
+  m_Name: MoveSpeed Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3465,6 +3468,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -438.2701
       objectReference: {fileID: 0}
+    - target: {fileID: 7580618157173584150, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: ArrowSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580618157173584150, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: cooldownHold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580618157173584150, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: cooldownPress
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7862230328833157482, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -425
@@ -3487,7 +3502,7 @@ GameObject:
   - component: {fileID: 837609538}
   - component: {fileID: 837609537}
   m_Layer: 5
-  m_Name: Health Upgrade
+  m_Name: MoveSpeed Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3800,7 +3815,7 @@ GameObject:
   - component: {fileID: 1306657677}
   - component: {fileID: 1306657676}
   m_Layer: 0
-  m_Name: Text Game Over
+  m_Name: Highscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3822,8 +3837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000040054, y: 5}
-  m_SizeDelta: {x: 153.8, y: 60.5}
+  m_AnchoredPosition: {x: 17, y: -0}
+  m_SizeDelta: {x: 153.79999, y: 60.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306657676
 MonoBehaviour:
@@ -3845,7 +3860,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: 'Enemies Killed:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3908,7 +3923,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -39.732887, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

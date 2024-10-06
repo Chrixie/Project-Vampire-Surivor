@@ -9,12 +9,13 @@ public class Bow : MonoBehaviour
     [SerializeField] GameObject ArrowPreFab;
     [SerializeField] float ArrowSpeed;
     private bool canShootPress = false;
-    public float cooldownPress = 1f;
+    public float cooldownPress = .2f;
     private bool canShootHold = false;
-    public float cooldownHold = 1f;
+    public float cooldownHold { get; set; }
 
-    private void Start()
+private void Start()
     {
+        cooldownHold = 1f;
         StartCoroutine(RegulatePress());
         StartCoroutine(RegulateHold());
     }

@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform WeaponAround;
-    [SerializeField] float moveSpeed;
-    [SerializeField] int maxHealth;
+    public float moveSpeed { get; set; }
+    public int maxHealth { get; set; }
     private int Health;
     [SerializeField] GameObject blood;
 
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        maxHealth = 100;
         Health = maxHealth;
         currentXp = 0;
         currentLevel = 0;
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
+
     public void TakeDamage(int damage)
     {
         healthBar.UpdateStatusBar(Health, maxHealth);
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
 
     public void XpGain()
     {
-        currentXp +=10;
+        currentXp +=50;
         XpBar.UpdateXpBar(currentXp, maxXp);
 
         Debug.Log("xp+");
