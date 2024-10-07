@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
+using UnityEngine.SocialPlatforms;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +19,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] int currentXp;
     [SerializeField] int maxXp;
-    [SerializeField] int currentLevel;
+    [SerializeField] public int currentLevel;
 
     public Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -24,33 +28,29 @@ public class Player : MonoBehaviour
     [SerializeField] FloatingStatusBar XpBar;
 
     [SerializeField] AnimationCurve myXpCurve;
-    
+
+    public TMP_Text TimeAliveScore;
+    public TMP_Text HighScore;
+
 
     void Start()
     {
         maxHealth = 100;
         Health = maxHealth;
         currentXp = 0;
-        currentLevel = 0;
+        currentLevel = 1;
         maxXp = 100;
         moveSpeed = 4;
 
+        HighScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
     }
-
-    /*public void Update()
-    {
-        ProcessInputs();
-        Move();
-
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 bowDirection = mousePos - (Vector2)transform.position;
-        WeaponAround.up = bowDirection.normalized;
-    }*/
 
     public void PlayerUpdate()
     {
         ProcessInputs();
         Move();
+        TimeAlive();
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 bowDirection = mousePos - (Vector2)transform.position;
@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
     public void XpGain()
     {
-        currentXp +=50;
+        currentXp += 50;
         XpBar.UpdateXpBar(currentXp, maxXp);
 
         Debug.Log("xp+");
@@ -107,8 +107,8 @@ public class Player : MonoBehaviour
 
         // maxXp = startXp + TotalMaxXp * curve.evaluate(currentLevel / maxLevel)
 
-         if (currentXp >= maxXp)
-         {
+        if (currentXp >= maxXp)
+        {
             currentLevel++;
             currentXp = 0;
             maxXp = IncreaseMaxXp();
@@ -117,18 +117,28 @@ public class Player : MonoBehaviour
 
             LvlUp(true);
 
-             Debug.Log("lvl+");
-         }
+            Debug.Log("lvl+");
+        }
 
     }
+    float TimeAliveCounter = 0f;
+    public void TimeAlive()
+    {
 
+        TimeAliveCounter += Time.deltaTime;
+        int TimeAliveInt = Mathf.FloorToInt(TimeAliveCounter);
 
+        TimeAliveScore.text = TimeAliveInt.ToString();
+
+        if (TimeAliveInt > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", TimeAliveInt);
+        }
+        HighScore.text = "Game Highscore: " + TimeAliveInt.ToString() + " seconds";
+    }
 
 }
 
-   /*currentExperience;
-     maxExperience;
-     currentLevel;*/
 
 
   

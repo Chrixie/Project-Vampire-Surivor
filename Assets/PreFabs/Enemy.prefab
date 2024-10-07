@@ -54,8 +54,7 @@ MonoBehaviour:
   Health: 0
   rb: {fileID: 5328348467420807744}
   enemySpawner: {fileID: 0}
-  healthBar: {fileID: 0}
-  player: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+  healthBar: {fileID: 7889669591390488946}
   XpBall: {fileID: 8990082602901652150, guid: 1b1b59180cfb67245899224be856225d, type: 3}
   animator: {fileID: 7135927370778411957}
   BodyRemove: {fileID: 9175945545226480711}

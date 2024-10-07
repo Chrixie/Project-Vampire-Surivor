@@ -8,12 +8,12 @@ using static Unity.Collections.AllocatorManager;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] CircleCollider2D InnerCollider;
-    [SerializeField] private int maxHealth;
+    [SerializeField] public int maxHealth;
     [SerializeField] private int Health;
     [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
     [SerializeField] FloatingStatusBar  healthBar;
-    public Player player;
+    private Player player;
     [SerializeField] GameObject XpBall;
     [SerializeField] Animator animator;
     [SerializeField] GameObject BodyRemove;
@@ -24,12 +24,16 @@ public class Enemy : MonoBehaviour
     {
         fakeStart();
         healthBar = GetComponentInChildren<FloatingStatusBar>();
+
+
     }
 
     public virtual void fakeStart()
     {
         Health = maxHealth;
+
     }
+
     public void TakeDamage(int damage)
     {
         if (Health > 0) 

@@ -28,6 +28,7 @@ public class UpgradeMenu : UpgradeState
     {
         Player.maxHealth += 10;
         GameManager.Instance.SwitchState<PlayingState>();
-
+        upgradeMenu.SetActive(false);
+        canvasMenu.SetActive(false);
     }
 }

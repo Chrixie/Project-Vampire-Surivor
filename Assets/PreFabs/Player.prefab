@@ -288,7 +288,6 @@ MonoBehaviour:
   ArrowPreFab: {fileID: 4904943178471391179, guid: b2f94c57c43ca5344800cec57c50f69d, type: 3}
   ArrowSpeed: 5
   cooldownPress: 0.5
-  cooldownHold: 0.1
 --- !u!1 &1215986951980159623
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,8 +411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponAround: {fileID: 1847259606956484762}
-  moveSpeed: 5
-  maxHealth: 100
   blood: {fileID: 4851790108195917267, guid: b61de39fea54cea49aa14400d6bcda69, type: 3}
   currentXp: 0
   maxXp: 100
@@ -427,6 +424,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  TimeAliveScore: {fileID: 0}
+  HighScore: {fileID: 0}
 --- !u!50 &6879079878214771272
 Rigidbody2D:
   serializedVersion: 4

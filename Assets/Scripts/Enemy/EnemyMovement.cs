@@ -16,6 +16,7 @@ public class EnemyMovement : Enemy
         base.fakeStart();
         rb = this.GetComponent<Rigidbody2D>();
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
     }
     public void EnemyMovementUpdate()
     {

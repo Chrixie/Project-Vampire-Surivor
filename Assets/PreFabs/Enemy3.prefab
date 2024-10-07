@@ -125,12 +125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InnerCollider: {fileID: 3840532554378699184}
-  maxHealth: 2
+  maxHealth: 1
   Health: 0
   rb: {fileID: 5328348467420807744}
   enemySpawner: {fileID: 0}
-  healthBar: {fileID: 0}
-  player: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+  healthBar: {fileID: 1355811964256913989}
   XpBall: {fileID: 8990082602901652150, guid: 1b1b59180cfb67245899224be856225d, type: 3}
   animator: {fileID: 159657983164138772}
   BodyRemove: {fileID: 7966591515462469419}
