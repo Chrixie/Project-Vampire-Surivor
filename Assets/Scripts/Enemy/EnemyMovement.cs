@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class EnemyMovement : Enemy
 {
-    [SerializeField] protected float moveSpeed;
+    [SerializeField] public float moveSpeed;
     protected Vector2 movement;
     public Transform Player;
     protected float direction;

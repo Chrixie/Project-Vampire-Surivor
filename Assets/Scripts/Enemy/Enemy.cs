@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [HideInInspector] public EnemySpawner enemySpawner;
     [SerializeField] FloatingStatusBar  healthBar;
-    private Player player;
     [SerializeField] GameObject XpBall;
     [SerializeField] Animator animator;
     [SerializeField] GameObject BodyRemove;
@@ -25,16 +24,15 @@ public class Enemy : MonoBehaviour
         fakeStart();
         healthBar = GetComponentInChildren<FloatingStatusBar>();
 
-
     }
 
     public virtual void fakeStart()
     {
         Health = maxHealth;
-
     }
 
-    public void TakeDamage(int damage)
+
+public void TakeDamage(int damage)
     {
         if (Health > 0) 
         {
@@ -56,7 +54,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isDead", true);
     }
 
-    //Damaging player (not implemented)
+    //Damaging player
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -65,6 +63,7 @@ public class Enemy : MonoBehaviour
             if (collision.TryGetComponent(out e))
             {
                 e.TakeDamage(1);
+                Debug.Log("damage taken");
             }
         }
     }

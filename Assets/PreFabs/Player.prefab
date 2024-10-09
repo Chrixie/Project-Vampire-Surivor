@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: -427}
-  m_SizeDelta: {x: 1920, y: 20}
+  m_AnchoredPosition: {x: 0.000061035156, y: -425}
+  m_SizeDelta: {x: 1920, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5914711102204341612
 MonoBehaviour:
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrowPreFab: {fileID: 4904943178471391179, guid: b2f94c57c43ca5344800cec57c50f69d, type: 3}
   ArrowSpeed: 5
-  cooldownPress: 0.5
+  cooldownPress: 0.3
 --- !u!1 &1215986951980159623
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,16 +411,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponAround: {fileID: 1847259606956484762}
-  blood: {fileID: 4851790108195917267, guid: b61de39fea54cea49aa14400d6bcda69, type: 3}
+  Health: 0
+  blood: {fileID: 4851790108195917267, guid: fb0d2d0d84abb5c44a6b3f7e69ef844d, type: 3}
   currentXp: 0
   maxXp: 100
   currentLevel: 1
+  enemy: {fileID: 5235031489103871344, guid: 78383f6ef41609b488dd07d3983ab50b, type: 3}
+  enemyMovement: {fileID: 5235031489103871344, guid: 78383f6ef41609b488dd07d3983ab50b, type: 3}
+  enemyTank: {fileID: 5235031489103871344, guid: 7755d1ee6f0b3a24eb2a77a06bbe1bcc, type: 3}
+  enemyRanger: {fileID: -6931847318363178909, guid: 6b441bc86a62d6749aecf930cabd8092, type: 3}
+  enemyMovementRanger: {fileID: -6931847318363178909, guid: 6b441bc86a62d6749aecf930cabd8092, type: 3}
   rb: {fileID: 6879079878214771272}
   healthBar: {fileID: 8964143643215942585}
   XpBar: {fileID: 7972271045795192358}
   myXpCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1028,8 +1052,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000091553, y: -440.27}
-  m_SizeDelta: {x: 1920, y: 20}
+  m_AnchoredPosition: {x: 0.000091553, y: -438.2701}
+  m_SizeDelta: {x: 1920, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930242417215304526
 MonoBehaviour:

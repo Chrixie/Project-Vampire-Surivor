@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EnemyTank
   - Enemy
+  - EnemyRanger
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Wall
   - 
   - 
   - Player

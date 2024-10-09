@@ -16,13 +16,13 @@ public class Bow : MonoBehaviour
 private void Start()
     {
         cooldownHold = 1f;
-        StartCoroutine(RegulatePress());
+       // StartCoroutine(RegulatePress());
         StartCoroutine(RegulateHold());
     }
 
     public void ShootUpdate()
     {
-        ShootArrowPress();
+        //ShootArrowPress();
         ShootArrowHold();
     }
 
@@ -37,7 +37,7 @@ private void Start()
     }
 
     //Shooting while pressing
-    void ShootArrowPress()
+    /*void ShootArrowPress()
     {
         if (canShootPress && Input.GetMouseButtonDown(0))
         {
@@ -56,7 +56,7 @@ private void Start()
             }
             yield return null;
         }
-    }
+    }*/
 
     //Shooting while Holding
     void ShootArrowHold()

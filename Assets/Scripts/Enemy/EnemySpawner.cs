@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float Timer = 0f;
     private Player player;
     public GameObject[] enemyPrefabs;
-    private int maxHealth;
+    //private int maxHealth;
     private int lastPlayerLevel = 0;
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
@@ -25,7 +25,8 @@ public class EnemySpawner : MonoBehaviour
         Timer -= Time.deltaTime;
         if (lastPlayerLevel != player.currentLevel)
         {
-            IncreaseHealth();
+            //IncreaseHealth();
+
             lastPlayerLevel = player.currentLevel;
         }
 
@@ -38,20 +39,19 @@ public class EnemySpawner : MonoBehaviour
         foreach (GameObject enemy in spawnedEnemies)
         {
             enemy.GetComponent<EnemyMovement>().EnemyMovementUpdate();
-            if (enemy.GetComponent<Enemy>().maxHealth > maxHealth)
-                maxHealth = enemy.GetComponent<Enemy>().maxHealth;
+            /*if (enemy.GetComponent<Enemy>().maxHealth > maxHealth)
+                maxHealth = enemy.GetComponent<Enemy>().maxHealth;*/
         }
     }
 
-    public void IncreaseHealth()
+    Vector3 getRandomPosition()
     {
-       
-        if (player.currentLevel % 5 == 0)
-        {
-            maxHealth += 5;
-        }
+        float xAxis = Random.Range(-32, 27);
+        float yAxis = Random.Range(-17, 18);
+        float zAxis = Random.Range(0, 0);
 
-
+        Vector3 newPosition = new Vector3(xAxis, yAxis, zAxis);
+        return newPosition;
     }
 
 
@@ -59,10 +59,10 @@ public class EnemySpawner : MonoBehaviour
     {
         index = index % enemyPrefabs.Count();
         // random -> Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)]();
-        GameObject newEnemy = Instantiate(enemyPrefabs[index]);
+        GameObject newEnemy = Instantiate(enemyPrefabs[index], getRandomPosition(), Quaternion.identity);
         spawnedEnemies.Add(newEnemy);
         newEnemy.GetComponent<Enemy>().enemySpawner = this;
-        newEnemy.GetComponent<Enemy>().maxHealth = maxHealth;
+       // newEnemy.GetComponent<Enemy>().maxHealth = maxHealth;
 
         Timer = 1f; 
 
