@@ -8,10 +8,10 @@ public class Bow : MonoBehaviour
 {
     [SerializeField] GameObject ArrowPreFab;
     [SerializeField] float ArrowSpeed;
-    private bool canShootPress = false;
-    public float cooldownPress = .2f;
+    //private bool canShootPress = false;
+    //public float cooldownPress = .2f;
     private bool canShootHold = false;
-    public float cooldownHold { get; set; }
+    [SerializeField] public float cooldownHold;
 
 private void Start()
     {
@@ -61,7 +61,7 @@ private void Start()
     //Shooting while Holding
     void ShootArrowHold()
     {
-        if (canShootHold && Input.GetMouseButton(1))
+        if (canShootHold && Input.GetMouseButton(0))
         {
             ShootArrow();
             canShootHold = false;

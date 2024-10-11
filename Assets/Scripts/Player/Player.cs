@@ -12,11 +12,11 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform WeaponAround;
-    public float moveSpeed { get; set; }
-    public int maxHealth { get; set; }
+    [SerializeField] public float moveSpeed;
+    public int maxHealth;
     [SerializeField] public int Health;
-    [SerializeField] public int HealthPerSceond;
-    private float timer;
+    [SerializeField] public int healthPerSecond;
+    public float timer;
     public float maxTimer;
     [SerializeField] GameObject blood;
 
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] Enemy enemyTank;
     [SerializeField] Enemy enemyRanger;
     [SerializeField] EnemyMovementRanger enemyMovementRanger;
+    [SerializeField] EnemySpawner spawner;
 
     public Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -42,21 +43,26 @@ public class Player : MonoBehaviour
     public TMP_Text HighScore;
 
 
-    void Start()
+    private void Start()
     {
         timer = 0;
         maxTimer = 1;
 
         maxHealth = 100;
+        healthPerSecond = 1;
         Health = maxHealth;
+
+        moveSpeed = 4;
+
         currentXp = 0;
         currentLevel = 1;
         maxXp = 100;
-        moveSpeed = 4;
-        HealthPerSceond = 0;
+
+
+
 
         enemy.maxHealth = (int)(2f);
-        enemyMovement.moveSpeed  = (int)(3);
+        enemyMovement.moveSpeed = (int)(3);
 
         enemyTank.maxHealth = (int)(4f);
 
@@ -101,7 +107,7 @@ public class Player : MonoBehaviour
     public void HealthRegen()
     {
 
-        if (Health > maxHealth) 
+        if (Health > maxHealth)
         {
             Health = maxHealth;
         }
@@ -111,14 +117,14 @@ public class Player : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > maxTimer)
             {
-                Health += (HealthPerSceond);
+                Health += (healthPerSecond);
                 timer = 0;
                 healthBar.UpdateStatusBar(Health, maxHealth);
             }
 
         }
 
-        if (Health < 0) 
+        if (Health < 0)
         {
             Health = 0;
         }
@@ -175,36 +181,36 @@ public class Player : MonoBehaviour
     {
 
         if (currentLevel % 5 == 0)
-            {
-                enemy.maxHealth += (int)(enemy.maxHealth * 1.5);
-                enemyMovement.moveSpeed += (int)(enemyMovement.moveSpeed + 0.05f);
+        {
+            enemy.maxHealth += (int)(enemy.maxHealth * 1.5);
+            enemyMovement.moveSpeed += (int)(enemyMovement.moveSpeed * 0.05f);
 
-                enemyTank.maxHealth += (int)(enemy.maxHealth * 3);
+            enemyTank.maxHealth += (int)(enemy.maxHealth * 3);
 
-                enemyRanger.maxHealth += (int)(enemy.maxHealth * 1.5);
-                enemyMovementRanger.timer += (int)(enemyMovementRanger.timer - 2);
-            }
+            enemyRanger.maxHealth += (int)(enemy.maxHealth * 1.5);
+            enemyMovementRanger.timer += (int)(enemyMovementRanger.timer - 2);
+
+            spawner.spawnTimer -= .2f;
+        }
     }
 
     float TimeAliveCounter = 0f;
     public void TimeAlive()
     {
+            TimeAliveCounter += Time.deltaTime;
+            int TimeAliveInt = Mathf.FloorToInt(TimeAliveCounter);
 
-        TimeAliveCounter += Time.deltaTime;
-        int TimeAliveInt = Mathf.FloorToInt(TimeAliveCounter);
+            TimeAliveScore.text = "Time Alive " + TimeAliveInt.ToString() + " seconds";
 
-        TimeAliveScore.text = TimeAliveInt.ToString();
-
-        if (TimeAliveInt > PlayerPrefs.GetInt("HighScore", 0))
-        {
-            PlayerPrefs.SetInt("HighScore", TimeAliveInt);
-        }
-        HighScore.text = "Game Highscore: " + TimeAliveInt.ToString() + " seconds";
+            if (TimeAliveInt > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", TimeAliveInt);
+            }
+            HighScore.text = "Game Highscore: " + TimeAliveInt.ToString() + " seconds";
     }
 
 }
 
 
 
-  
-      
+

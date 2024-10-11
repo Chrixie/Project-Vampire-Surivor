@@ -909,7 +909,7 @@ MonoBehaviour:
   upgradeOne: {fileID: 837609535}
   upgradeTwo: {fileID: 283007549}
   upgradeThree: {fileID: 101952985}
-  Player: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+  player: {fileID: 1214941999}
   WeaponDamage: {fileID: 0}
   ShootSpeed: {fileID: 677930058}
 --- !u!1 &267341778
@@ -3440,13 +3440,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1306657676}
     - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
       propertyPath: TimeAliveScore
       value: 
       objectReference: {fileID: 1676730126}
-    - target: {fileID: 2667433756842021057, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
-      propertyPath: HealthPerSceond
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3211374878503191452, guid: acb266f7ba1654c4d88cf0ecddef60e5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7235,7 +7235,7 @@ GameObject:
   - component: {fileID: 1676730127}
   - component: {fileID: 1676730126}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TimeAliveCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7257,7 +7257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 267}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676730126
@@ -7307,8 +7307,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -199.67444, y: 0, z: -200.82867, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7543,7 +7543,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -101
+  m_SortingOrder: -200
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0

@@ -7,26 +7,26 @@ public class UpgradeMenu : UpgradeState
     [SerializeField] protected GameObject upgradeOne;
     [SerializeField] protected GameObject upgradeTwo;
     [SerializeField] protected GameObject upgradeThree;
-    [SerializeField] Player Player;
+    [SerializeField] Player player;
     [SerializeField] Weapon WeaponDamage;
     [SerializeField] Bow ShootSpeed;
     public void UpgradeOne()
     {
-        Player.moveSpeed += .5f;
+        player.moveSpeed += .15f;
         GameManager.Instance.SwitchState<PlayingState>();
         upgradeMenu.SetActive(false);
         canvasMenu.SetActive(false);
     }
     public void UpgradeTwo()
     {
-        ShootSpeed.cooldownHold -= .075f;
+        ShootSpeed.cooldownHold -= .15f;
         GameManager.Instance.SwitchState<PlayingState>();
         upgradeMenu.SetActive(false);
         canvasMenu.SetActive(false);
     }
     public void UpgradeThree()
     {
-        Player.maxTimer -= 0.05f;
+        player.maxTimer -= 0.05f;
         GameManager.Instance.SwitchState<PlayingState>();
         upgradeMenu.SetActive(false);
         canvasMenu.SetActive(false);
